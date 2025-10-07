@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class FirstProgram {
+public class RetriveData {
     public static void main(String[] args) throws ClassNotFoundException {
 
         String url = "jdbc:mysql://localhost:3306/javajdbc";
