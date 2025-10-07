@@ -9,20 +9,20 @@ public class RetriveData {
         String query = "SELECT * FROM employees";
 
 
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver loaded Successfully");
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
-        try{
+        try {
             Connection conn = DriverManager.getConnection(url, username, password);
             System.out.println("Connection established Successfully");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
-            while (rs.next()){
+            while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String job_title = rs.getString("job_title");
