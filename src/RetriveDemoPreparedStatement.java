@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class DemoPreparedStatment {
+public class RetriveDemoPreparedStatement {
     public static void main(String[] args) throws ClassNotFoundException {
         String url = "jdbc:mysql://localhost:3306/javajdbc";
         String user = "root";
