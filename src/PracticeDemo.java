@@ -23,6 +23,7 @@ public class PracticeDemo {
             String name = rs.getString("name");
             System.out.println("ID: " + id );
             System.out.println("Name: " + name);
+            System.out.println("-------------------");
         }
 //
 //        if(rowsAffected>0){
