@@ -1,9 +1,6 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.DatabaseMetaData;
+import java.sql.*;
 
-public class DatabaseMetaData {
+public class DatabaseMetaDataDemo {
     public static void main(String[] args) throws ClassNotFoundException {
 
         String url = "jdbc:mysql://localhost:3306/javajdbc";
@@ -25,6 +22,22 @@ public class DatabaseMetaData {
             System.out.println("Driver Version: " + dbMetaData.getDriverVersion());
             System.out.println("User Name: " + dbMetaData.getUserName());
             System.out.println("Supports Transactions: " + dbMetaData.supportsTransactions());
+
+            ResultSet tables = dbMetaData.getTables(null,null,"%", new String[]{"TABLE"});
+
+            while (tables.next()) {
+                System.out.println("Table_name");
+            }
+            ResultSet columns = dbMetaData.getColumns(null, null, "employees", null);
+            while (columns.next()) {
+                System.out.println("Column Name: " + columns.getString("COLUMN_NAME") +
+                        " | Type: " + columns.getString("TYPE_NAME"));
+            }
+            conn.close();
+            System.out.println("Connection closed successfully");
+
+
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
